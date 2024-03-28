@@ -10,7 +10,6 @@ public class Main {
         Scanner kb = new Scanner(System.in);
         System.out.print("Enter name of input file: ");
         String fileName = kb.nextLine();
-        kb.close();
 
         // create a list to hold the processes that will be scheduled
         List<Process> processes = new ArrayList<>();
@@ -42,6 +41,40 @@ public class Main {
         for (Process process : processes) {
             System.out.println(process.getPID() + ", " + process.getArrivalTime() + ", " + process.getBurstTime() + ", " + process.getPriority());
         }
+
+        // prompt user on which scheduler should run
+        System.out.println("Choose a scheduling algorithm:\n
+                           1. FCFS
+                           2. SJF
+                           3. Preemptive priority
+                           4. Round robin");
+        int choice = kb.nextInt();
         
+        switch (choice) {
+            case 1:
+                FCFS schedFcfs = new FCFS(processes);
+                schedFcfs.schedule();
+                break;
+            case 2:
+                SJF schedSjf = new SJF(processes);
+                schedSjf.schedule();
+                break;
+            case 3:
+                PreemptivePriority schedPreemptivePriority = new PreemptivePriority(processes);
+                schedPreemptivePriority.schedule();
+                break;
+            case 4:
+                RoundRobin schedRoundRobin = new RoundRobin(processes);
+                schedRoundRobin.schedule();
+                break;
+            default:
+                System.out.println("Invalid option");
+                System.exit(1);
+        }
+
+        System.exit(0);
+
+        
+
     }
 }

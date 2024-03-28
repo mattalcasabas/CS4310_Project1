@@ -29,8 +29,9 @@ public class FCFS {
     }
 
     public void schedule() {
-        ProcessList result = new ProcessList();
-        pl.sortByArrivalTime();
-        
+        // export the process list as a
+        while (true) {
+
+        }
     }
 }
