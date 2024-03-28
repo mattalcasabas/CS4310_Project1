@@ -29,9 +29,12 @@ public class FCFS {
     }
 
     public void schedule() {
-        // export the process list as a
+        
+        // create a clock to keep track of simulated milliseconds
+        int clock = 0;
         while (true) {
 
         }
+
     }
 }
