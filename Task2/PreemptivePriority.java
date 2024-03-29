@@ -1,6 +1,7 @@
 package Task2;
-
-public class PreemptivePriority {
+import java.lang.Iterable;
+import java.util.Iterator;
+public class PreemptivePriority implements Iterable {
     private double avgWaitTime;
     private double avgResponseTime;
     private double avgTurnaroundTime;
@@ -30,4 +31,10 @@ public class PreemptivePriority {
     public void schedule() {
         
     }
+
+	@Override
+	public Iterator iterator() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+	}
 }

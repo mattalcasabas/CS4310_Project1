@@ -1,6 +1,4 @@
 package Task2;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +10,7 @@ public class Main {
         String fileName = kb.nextLine();
 
         // create a list to hold the processes that will be scheduled
-        List<Process> processes = new ArrayList<>();
+        ProcessList processes = new ProcessList();
 
         try {
             File file = new File(fileName);
@@ -36,20 +34,17 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        // print out each process so we know what we have (for debug)
-        for (Process process : processes) {
-            System.out.println(process.getPID() + ", " + process.getArrivalTime() + ", " + process.getBurstTime() + ", " + process.getPriority());
-        }
 
         // prompt user on which scheduler should run
-        System.out.println("Choose a scheduling algorithm:\n
-                           1. FCFS
-                           2. SJF
-                           3. Preemptive priority
-                           4. Round robin");
+        System.out.print("Choose a scheduling algorithm:\n");
+        System.out.println("1. FCFS");  
+        System.out.println("2. SJF"); 
+        System.out.println("3. Preemptive priority"); 
+        System.out.println("4. Round robin"); 
         int choice = kb.nextInt();
+        kb.close();
         
+        // select an algorithm based on user's choice
         switch (choice) {
             case 1:
                 FCFS schedFcfs = new FCFS(processes);

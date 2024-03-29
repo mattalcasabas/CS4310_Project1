@@ -9,7 +9,7 @@ public class ProcessList {
         this.pl = new ArrayList<>();
     }
 
-    public void addProcess(Process p) {
+    public void add(Process p) {
         pl.add(p);
     }
 
@@ -19,6 +19,21 @@ public class ProcessList {
 
     public int length() {
         return pl.size();
+    }
+
+    public int[][] to2DArray() {
+        // 4 columns for PID, arrival time, burst time, and priority
+        int[][] array = new int[pl.size()][4]; 
+    
+        for (int i = 0; i < pl.size(); i++) {
+            Process process = pl.get(i);
+            array[i][0] = process.getPID();
+            array[i][1] = process.getArrivalTime();
+            array[i][2] = process.getBurstTime();
+            array[i][3] = process.getPriority();
+        }
+    
+        return array;
     }
 
     
